@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:34:12 by dande-je          #+#    #+#             */
-/*   Updated: 2025/04/13 20:30:40 by maurodri         ###   ########.fr       */
+/*   Updated: 2025/04/13 21:31:27 by maurodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,13 @@ typedef struct s_state
 	double time_since_last_update;
 }	t_state;
 
+typedef struct s_bullet
+{
+	t_location	loc;
+	float		velocity;
+	int			is_alive;
+} t_bullet;
+
 typedef struct s_game
 {
 	t_context	ctx;
@@ -85,6 +92,7 @@ typedef struct s_game
 	t_chart		chart;
 	t_player	player;
 	t_state		state;
+	t_bullet	bullet;
 }	t_game;
 
 int		game_init(t_config_file *config, t_game *out_game);
